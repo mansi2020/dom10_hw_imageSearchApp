@@ -3,14 +3,17 @@ let inputText = document.querySelector("input");
 let form = document.querySelector("form");
 let imageWrapper = document.querySelector(".imageWrapper");
 let showMore = document.querySelector("#showMore");
-let loader = document.querySelector(".loader")
+let loader = document.querySelector(".loader");
+let loader2 = document.querySelector(".loader2");
 // console.log(button);
 // loader.style.display = "block";
+// loader2.style.display = "block";
 // todoad click on search button and we can find image
 const accessKey = "z9g1GpUy0Qf6w2sCf4yWGijIhN_-jP3sTQorTz4I3Us";
 let page = 1;
 async function fetchImage() {
     loader.style.display = "none";
+    loader2.style.display = "none";
   let searchBarText = inputText.value;
   // console.log(searchBarText);
   let data = await fetch(
@@ -54,7 +57,8 @@ form.addEventListener("submit", (e) => {
 });
 
 showMore.addEventListener("click", () => {
-    loader.style.display = "block";
+    loader2.style.display = "block";
+    showMore.style.display = "none";
     setTimeout(fetchImage,4000);
 });
 
