@@ -1,9 +1,118 @@
+@import url("https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap");
+
 * {
   padding: 0;
   margin: 0;
   box-sizing: border-box;
+  font-family: "Roboto", sans-serif;
 }
 
+/* main container */
+body {
+  background-color: black;
+  height: 100vh;
+  width: 100vw;
+  padding:1rem;
+  overflow-x: hidden;
+}
+
+form {
+  height: 100%;
+  width: 100%;
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+/* heading */
+h1 {
+  margin-bottom: 2rem;
+  color: white;
+}
+
+/* search bar */
+#searchBar input {
+  width: 70vw;
+  height: 100%;
+  border: none;
+  background-color: lightblue;
+  padding:20px;
+}
+#searchBar input:focus {
+  outline: none;
+}
+#searchBar input::placeholder {
+  color: rgba(0, 0, 0, 0.7);
+  font-size: 1.1rem;
+}
+#searchBar button {
+  width: 200px;
+  height: 100%;
+  background: rgb(58, 62, 241);
+  background: linear-gradient(
+    90deg,
+    rgba(58, 62, 241, 1) 0%,
+  );
+  color: white;
+  font-size: 1.1rem;
+  border: 2px solid lightblue;
+}
+#searchBar button:hover{
+  color:white;
+  border: 2px solid rgba(58, 62, 241, 1);
+  background-color: transparent;
+  cursor: pointer;
+}
+#searchBar {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 50px;
+}
+form input{
+  font-size: 1.2rem;
+}
+
+/* default imahe style */
+.defaultImg{
+  width:100%;
+  height:70vh;
+  
+}
+.defaultContainer{
+  background-image: url("./2.avif");
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: cover;
+  height:75vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+.headingDefault{
+  font-size: 3rem;
+  color:black;
+  z-index: 30;
+  text-shadow: 2px 2px 10px blue;
+
+}
+.defaultIcons{
+  display:flex;
+  gap:1rem;
+  font-size: 2rem;
+  color:black;
+}
+.defaultIcons i{
+  transition: 0.2s ease;
+}
+.defaultIcons i:hover{
+    cursor: pointer;
+    color:blue;
+    transform: scale(1.1);
+}
+
+/* imageWrapper div=> display all image which we are fetch from upi */
 .imageWrapper {
   display: flex;
   flex-wrap: wrap;
@@ -12,6 +121,7 @@
   padding: 20px;
 }
 .newDivStyle {
+  background-color: white;
   margin-bottom: 60px;
   width: 30%;
   border-radius: 5px;
@@ -30,29 +140,36 @@
   transform: scale(1.1);
 }
 .imageLink {
+  color:black;
   padding: 10px;
   display: block;
-  color: #333;
   text-decoration: none;
   transition: background-color 0.3s ease-in-out;
   margin-bottom: 1rem;
 }
+.imageLink:hover{
+  background-color: lightblue;
+  color:black;
+}
+
+/* showmore button */
 #showMore {
   display: none;
-  padding:10px 40px;
+  padding: 10px 40px;
   font-size: 1.1rem;
   font-weight: 600;
   margin: 2rem auto;
   border: none;
-  color:white;
+  color: white;
   background-color: rgb(10, 105, 238);
+  position: relative;
+  bottom :3rem;
 }
-#showMore:hover{
-    border :2px solid rgb(10, 105, 238);
-    color:rgb(10, 105, 238);
-    background-color: transparent;
+#showMore:hover {
+  border: 2px solid rgb(10, 105, 238);
+  color: rgb(10, 105, 238);
+  background-color: transparent;
 }
-
 
 /* loader */
 
@@ -90,7 +207,7 @@
 
 /* loader */
 .loader2 {
-  border: 10px solid rgba(161, 159, 159,0.5);
+  border: 10px solid #f3f3f3;
   border-radius: 50%;
   border-top: 10px solid blue;
   width: 60px;
@@ -98,9 +215,9 @@
   -webkit-animation: spin 2s linear infinite; /* Safari */
   animation: spin 2s linear infinite;
   display: none;
-  margin-bottom: 2rem;
   position: relative;
-  left:50%;
+  left: 50%;
+  bottom:5rem;
 }
 
 @-webkit-keyframes spin {
